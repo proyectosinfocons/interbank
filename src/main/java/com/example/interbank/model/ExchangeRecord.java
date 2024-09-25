@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "exchange_rates")
 public class ExchangeRecord {
     @Id
-    private Long id;
+    private String id;
     private Double amount;
     private String sourceCurrency;
     private String targetCurrency;
@@ -27,7 +27,8 @@ public class ExchangeRecord {
         this.exchangeRate = exchangeRate;
     }
 
-    public ExchangeRecord(Long id, Double amount, String sourceCurrency, String targetCurrency, Double exchangedAmount, Double exchangeRate) {
+
+    public ExchangeRecord(String id, Double amount, String sourceCurrency, String targetCurrency, Double exchangedAmount, Double exchangeRate) {
         this.id = id;
         this.amount = amount;
         this.sourceCurrency = sourceCurrency;
@@ -36,11 +37,14 @@ public class ExchangeRecord {
         this.exchangeRate = exchangeRate;
     }
 
-    public Long getId() {
+    public ExchangeRecord() {
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

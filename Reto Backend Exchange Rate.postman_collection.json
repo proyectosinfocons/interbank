@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "f4fff2aa-f7db-40e1-a023-228697f0d2e9",
+		"name": "Reto Backend Exchange Rate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15989023"
+	},
+	"item": [
+		{
+			"name": "Crear usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\":\"arauzo123456\",\r\n    \"clave\":\"123\",\r\n    \"estado\":true,\r\n\"roles\":[\r\n   {\r\n      \"id\":\"6577cf7c1233e776f685ca53\"\r\n   }\r\n]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/saveAccount",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"saveAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "arauzo",
+						"type": "default"
+					},
+					{
+						"key": "clave",
+						"value": "123",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"arauzo123456\",\n    \"password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guardar tipo de cambio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ0ZXN0IjoicHJvYmFuZG8uLi4uIiwicm9sZXMiOltdLCJzdWIiOiJhcmF1em8xMjM0NTYiLCJpYXQiOjE3MjcyMjMxNTcsImV4cCI6MTcyNzIyNTk1N30.YwtUjl6vCj442LbNam4NEDXHZTzdrS63CIUnnHLSPN86feWwH8A168DLVi_wpb0GZSrzfDK93ye9yvMLGIeOrQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sourceCurrency\":\"USD\",\n    \"targetCurrency\":\"PEN\",\n    \"amount\": 1.2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/currency/convert",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"currency",
+						"convert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ0ZXN0IjoicHJvYmFuZG8uLi4uIiwicm9sZXMiOltdLCJzdWIiOiJhcmF1em8xMjM0NTYiLCJpYXQiOjE3MjcyMjMxNTcsImV4cCI6MTcyNzIyNTk1N30.YwtUjl6vCj442LbNam4NEDXHZTzdrS63CIUnnHLSPN86feWwH8A168DLVi_wpb0GZSrzfDK93ye9yvMLGIeOrQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/currency",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"currency"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
